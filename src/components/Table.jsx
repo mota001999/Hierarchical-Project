@@ -51,7 +51,7 @@ const Table = ({ entry, fn, diff, parPercent }) => {
 
   React.useEffect(() => {
     if(diff!==0){
-    const myValue = diff/parPercent + curvalue;
+    const myValue = (diff*parPercent) + curvalue;
     setValue(myValue);
     setVariance(variance + (myValue/curvalue) * 100);
     setVarCount(varCount + 1);}
@@ -116,7 +116,7 @@ const Table = ({ entry, fn, diff, parPercent }) => {
           [button2]
         </button>
         <span style={{ flex: 1, textAlign: 'center' }}>
-          {variance} %
+          {variance/(varCount===0?1:varCount)} %
         </span>
       </div>
       {children?.map((child) => (
