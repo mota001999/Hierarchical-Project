@@ -45,7 +45,7 @@ const Table = ({ entry, fn, diff, parPercent }) => {
     const myVal = changeInChild + curvalue;
     const varianceChange = (changeInChild / curvalue) * 100;
     setValue(myVal);
-    setVariance(variance + varianceChange);
+    setVariance(number.tovariance + varianceChange);
     setVarCount(varCount + 1);
   };
 
@@ -53,7 +53,7 @@ const Table = ({ entry, fn, diff, parPercent }) => {
     if(diff!==0){
     const myValue = (diff*parPercent) + curvalue;
     setValue(myValue);
-    setVariance(variance + (myValue/curvalue) * 100);
+    setVariance(variance + ((myValue/curvalue) * 100));
     setVarCount(varCount + 1);}
   }, [diff]);
 
@@ -75,7 +75,7 @@ const Table = ({ entry, fn, diff, parPercent }) => {
         }}
       >
         <span style={{ flex: 2, paddingLeft: label.startsWith('--') ? '20px' : '0' }}>{label}</span>
-        <span style={{ flex: 1, textAlign: 'center' }}>{curvalue}</span>
+        <span style={{ flex: 1, textAlign: 'center' }}>{curvalue.toFixed(2)}</span>
         <input
           type="text"
           value={inputValue}
@@ -116,7 +116,7 @@ const Table = ({ entry, fn, diff, parPercent }) => {
           [button2]
         </button>
         <span style={{ flex: 1, textAlign: 'center' }}>
-          {variance/(varCount===0?1:varCount)} %
+          {(variance/(varCount===0?1:varCount)).toFixed(2)}%
         </span>
       </div>
       {children?.map((child) => (
