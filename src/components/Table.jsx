@@ -45,7 +45,7 @@ const Table = ({ entry, fn, diff, parPercent }) => {
     const myVal = changeInChild + curvalue;
     const varianceChange = (changeInChild / curvalue) * 100;
     setValue(myVal);
-    setVariance(number.tovariance + varianceChange);
+    setVariance(variance + varianceChange);
     setVarCount(varCount + 1);
   };
 
@@ -53,7 +53,7 @@ const Table = ({ entry, fn, diff, parPercent }) => {
     if(diff!==0){
     const myValue = (diff*parPercent) + curvalue;
     setValue(myValue);
-    setVariance(variance + ((myValue/curvalue) * 100));
+    setVariance(variance + (((myValue-curvalue)/curvalue) * 100));
     setVarCount(varCount + 1);}
   }, [diff]);
 
