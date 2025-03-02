@@ -1,5 +1,5 @@
 import React from 'react'
-import Table from './table.jsx';
+import Table from './Table.jsx';
 const data = {
     "rows": [
       {
